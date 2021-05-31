@@ -8,7 +8,7 @@ function Input() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  const addTodo = () => {
+  const addTodo = (e) => {
     console.log(`addtodo${input}`);
 
     dispatch(
@@ -18,6 +18,7 @@ function Input() {
         id: Date.now(),
       })
     );
+    setInput("");
   };
   return (
     <div className="input">
@@ -25,6 +26,7 @@ function Input() {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        id="input"
       />
       <button onClick={addTodo}>Add!</button>
     </div>
